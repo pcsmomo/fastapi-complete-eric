@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "03-poetry-install"
+version = "0.1.0"
+description = ""
+authors = ["Noah Kim <dongwoo_333@hanmail.net>"]
+readme = "README.md"
+packages = [{include = "03_poetry_install"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
