@@ -35,6 +35,10 @@ pyenv install 3.10.7
      fpath+=~/.zfunc
      autoload -Uz compinit && compinit
      ```
+4. poetry
+   - `poetry new 03-poetry-install`
+   - `poetry shell`
+   - `python 03-poetry-install/__init__.py`
 
 #### vscode formatter
 
@@ -43,6 +47,12 @@ pyenv install 3.10.7
 /Users/noah/.pyenv/versions/3.10.7/bin/python -m pip install -U autopep8
 # pip update
 /Users/noah/.pyenv/versions/3.10.7/bin/python -m pip install --upgrade pip
+```
+
+### 13. Download Source Code
+
+```sh
+pip install -r requirements.txt
 ```
 
 </details>
