@@ -4,6 +4,11 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
 
 ## Details
 
+Run Python in VSCode
+
+1. Ctrl + Command + P : "Python: Run Python File in Terminal"
+2. And create a new shortcut Shift + Option + Enter to run it
+
 <details open>
   <summary>Click to Contract/Expend</summary>
 
