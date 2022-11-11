@@ -97,6 +97,22 @@ poetry init
 poetry add fastapi
 poetry add uvicorn
 uvicorn books:app --reload
+# navigate localhost:8000
 ```
+
+### 47. FastAPI Project: Swagger, HTTP Request Methods, and Status Codes Overview
+
+[OpenAPI Specification](https://swagger.io/specification/)
+
+- http://localhost:8000/openapi.json
+- http://localhost:8000/docs
+
+FastAPI Response Status Code
+
+- 1XX - Informational Response: Request processing
+- 2XX - Success: Request successfully complete
+- 3XX - Redirection: Further action must be complete
+- 4XX - Client Errors: An error was caused by the request from the clinent
+- 5XX - Server Errors: An error has occurred on the server
 
 </details>
