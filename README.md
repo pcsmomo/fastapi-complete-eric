@@ -54,6 +54,28 @@ pyenv install 3.10.7
 /Users/noah/.pyenv/versions/3.10.7/bin/python -m pip install --upgrade pip
 ```
 
+[VSCode Python formatting](https://code.visualstudio.com/docs/python/editing#_formatting)
+
+- `settings.json` in vscode
+  ```json
+  {
+    "[python]": {
+      "editor.defaultFormatter": null,
+      "editor.tabSize": 4,
+      "editor.formatOnSave": true
+    },
+    "python.formatting.provider": "autopep8"
+  }
+  ```
+- add `.pep8`
+  ```yaml
+  [pycodestyle]
+  max_line_length = 120
+  ignore = "E501,W6"  # or ["E501", "W6"]
+  recursive = true
+  aggressive = 1
+  ```
+
 ### 13. Download Source Code
 
 ```sh
