@@ -76,6 +76,21 @@ pyenv install 3.10.7
   aggressive = 1
   ```
 
+#### import (report Missing Imports)
+
+```sh
+poetry shell
+# Spawning shell within /Users/noah/Library/Caches/pypoetry/virtualenvs/virtual-env-BQA6ArIp-py3.10
+```
+
+```json
+// settings.json
+{
+  "python.defaultInterpreterPath": "/Users/noah/Library/Caches/pypoetry/virtualenvs/virtual-env-BQA6ArIp-py3.10/bin/python",
+  "python.analysis.extraPaths": ["app", "another/path/etc"]
+}
+```
+
 ### 13. Download Source Code
 
 ```sh

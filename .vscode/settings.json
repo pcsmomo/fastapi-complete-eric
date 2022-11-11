@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "/Users/noah/Library/Caches/pypoetry/virtualenvs/virtual-env-BQA6ArIp-py3.10/bin/python",
+  "python.analysis.extraPaths": ["app", "another/path/etc"]
+}
