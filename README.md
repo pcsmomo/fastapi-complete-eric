@@ -82,4 +82,21 @@ pyenv install 3.10.7
 pip install -r requirements.txt
 ```
 
+### 46. FastAPI and VirtualENV Installation (Mac)
+
+```sh
+# However, I'm going to use poetry instead of venv
+pip3 install virtualenv
+python3 -m venv fastapienv
+. fastapienv/bin/activate
+deactivate
+```
+
+```sh
+poetry init
+poetry add fastapi
+poetry add uvicorn
+uvicorn books:app --reload
+```
+
 </details>
