@@ -2,6 +2,12 @@
 
 FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
 
+## Folder structure
+
+- 06-virtual-env
+  - books : only env
+-
+
 ## Details
 
 Run Python in VSCode
@@ -129,5 +135,22 @@ FastAPI Response Status Code
 - 3XX - Redirection: Further action must be complete
 - 4XX - Client Errors: An error was caused by the request from the clinent
 - 5XX - Server Errors: An error has occurred on the server
+
+## Section 07. Project 1 - FastAPI Request Method Logic
+
+### 53. FastAPI Project: Enhance Get Request
+
+```sh
+source /Users/noah/Library/Caches/pypoetry/virtualenvs/virtual-env-BQA6ArIp-py3.10/bin/activate
+
+poetry init
+poetry add fastapi
+poetry add uvicorn
+
+poetry shell
+# source /Users/noah/Library/Caches/pypoetry/virtualenvs/07-fastapi-basic-G7qb60mq-py3.10/bin/activate
+uvicorn books:app --reload
+# navigate localhost:8000
+```
 
 </details>
