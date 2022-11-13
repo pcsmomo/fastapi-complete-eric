@@ -44,3 +44,14 @@ async def get_direction(direction_name: DirectionName):
         return {"Direction": direction_name, "sub": "Right"}
     if direction_name == DirectionName.west:
         return {"Direction": direction_name, "sub": "Left"}
+
+
+@app.get("/assignment/")
+async def read_book_assignment(book_name: str):
+    return BOOKS[book_name]
+
+
+@app.delete("/assignment/")
+async def delete_book_assignment(book_name: str):
+    del BOOKS[book_name]
+    return f'Book_{book_name} deleted'
