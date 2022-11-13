@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Optional
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -13,7 +14,14 @@ BOOKS = {
 
 
 @app.get("/")
-async def read_all_books():
+async def read_all_books(skip_book: Optional[str] = None):
+    '''
+    curl -X 'GET' 'http://localhost:8000/?skip_book=book_3'
+    '''
+    if skip_book:
+        new_books = BOOKS.copy()
+        del new_books[skip_book]
+        return new_books
     return BOOKS
 
 
