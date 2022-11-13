@@ -6,6 +6,12 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
 
 - 06-virtual-env
   - books : only env
+- 07-fastapi-basic
+  - books.py : basic routes
+  - examples.py : examples
+- 08-fastapi-advanced
+  - books2.py
+    - pydantic: Data validation(typing)
 
 ## Details
 
