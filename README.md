@@ -178,7 +178,7 @@ poetry shell
 # /Users/noah/Library/Caches/pypoetry/virtualenvs/08-fastapi-advanced-wumQm9a7-py3.10
 source /Users/noah/Library/Caches/pypoetry/virtualenvs/08-fastapi-advanced-wumQm9a7-py3.10/bin/activate
 
-uvicorn books:app --reload
+uvicorn books2:app --reload
 # navigate localhost:8000
 ```
 
