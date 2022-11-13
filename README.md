@@ -6,7 +6,6 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
 
 - 06-virtual-env
   - books : only env
--
 
 ## Details
 
@@ -144,8 +143,7 @@ FastAPI Response Status Code
 source /Users/noah/Library/Caches/pypoetry/virtualenvs/virtual-env-BQA6ArIp-py3.10/bin/activate
 
 poetry init
-poetry add fastapi
-poetry add uvicorn
+poetry add fastapi uvicorn
 
 poetry shell
 # source /Users/noah/Library/Caches/pypoetry/virtualenvs/07-fastapi-basic-G7qb60mq-py3.10/bin/activate
@@ -166,6 +164,22 @@ async def read_favorite_book():
 @app.get("/books/{book_id}")
 async def read_book(book_id: int):
     return {"book_title": book_id}
+```
+
+## Section 08. Project 2 - Move Fast with FastAPI
+
+### 64. Books 2 Project Overview
+
+```sh
+poetry init
+poetry add fastapi uvicorn
+
+poetry shell
+# /Users/noah/Library/Caches/pypoetry/virtualenvs/08-fastapi-advanced-wumQm9a7-py3.10
+source /Users/noah/Library/Caches/pypoetry/virtualenvs/08-fastapi-advanced-wumQm9a7-py3.10/bin/activate
+
+uvicorn books:app --reload
+# navigate localhost:8000
 ```
 
 </details>
