@@ -28,3 +28,20 @@ async def read_all_books(skip_book: Optional[str] = None):
 @app.get("/{book_name}")
 async def read_book(book_name: str):
     return BOOKS[book_name]
+
+
+@app.post("/")
+async def create_book(book_title, book_author):
+    largest_book_id = 0
+
+    # find the largest book id
+    if len(BOOKS) > 0:
+        for book in BOOKS:
+            x = int(book.split('_')[-1])
+            if x > largest_book_id:
+                largest_book_id = x
+
+    new_book_id = f'book_{largest_book_id + 1}'
+
+    BOOKS[new_book_id] = {'title': book_title, 'author': book_author}
+    return BOOKS[new_book_id]
