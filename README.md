@@ -153,4 +153,19 @@ uvicorn books:app --reload
 # navigate localhost:8000
 ```
 
+### 54. FastAPI Project: Path Parameters
+
+> To take the dynamic path parameter properly, the route for dynamic path, \
+> `{{book_id}}` should be stated below the static router `mybook`
+
+```py
+@app.get("/books/mybook")
+async def read_favorite_book():
+    return {"book_title": "My favorite book"}
+
+@app.get("/books/{book_id}")
+async def read_book(book_id: int):
+    return {"book_title": book_id}
+```
+
 </details>
