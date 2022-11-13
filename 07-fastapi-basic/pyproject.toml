@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "07-fastapi-basic"
+version = "0.1.0"
+description = ""
+authors = ["Noah Kim"]
+readme = "README.md"
+packages = [{include = "07_fastapi_basic"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
