@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 from uuid import UUID
 
@@ -48,6 +48,7 @@ async def read_book(book_id: UUID):
     for x in BOOKS:
         if x.id == book_id:
             return x
+    raise raise_item_cannot_be_found_exception()
 
 
 @app.post("/")
@@ -65,6 +66,7 @@ async def update_book(book_id: UUID, book: Book):
         if x.id == book_id:
             BOOKS[counter - 1] = book
             return BOOKS[counter - 1]
+    raise raise_item_cannot_be_found_exception()
 
 
 @app.delete("/{book_id}")
@@ -76,6 +78,7 @@ async def delete_book(book_id: UUID):
         if x.id == book_id:
             del BOOKS[counter - 1]
             return f'ID:{book_id} deleted'
+    raise raise_item_cannot_be_found_exception()
 
 
 def create_books_no_api():
@@ -103,3 +106,10 @@ def create_books_no_api():
     BOOKS.append(book_2)
     BOOKS.append(book_3)
     BOOKS.append(book_4)
+
+
+def raise_item_cannot_be_found_exception():
+    return HTTPException(status_code=404,
+                         detail="Book not found",
+                         headers={"X-Header-Error":
+                                  "Nothing to be seen at the UUID"})
