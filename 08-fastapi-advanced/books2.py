@@ -13,6 +13,17 @@ class Book(BaseModel):
     description: Optional[str] = Field(title="Description of the book", max_length=100, min_length=1)
     rating: int = Field(gt=-1, lt=101)
 
+    class Config:
+        schema_extra = {
+            "example": {
+                "id": "11f4c2ea-1340-41f4-89f7-2852347bb0d1",
+                "title": "Computer Science Pro",
+                "author": "Codingwithroby",
+                "description": "A very nice description of a book",
+                "rating": 75
+            }
+        }
+
 
 BOOKS = []
 
