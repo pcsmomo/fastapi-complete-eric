@@ -190,4 +190,12 @@ uvicorn books2:app --reload
 # navigate localhost:8000
 ```
 
+### 81. FastAPI Project: Form Fields
+
+```sh
+# RuntimeError: Form data requires "python-multipart" to be installed.
+# You can install "python-multipart" with:
+poetry add python-multipart
+```
+
 </details>
