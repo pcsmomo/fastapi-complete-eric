@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "09-http-exceptions-status-code"
+version = "0.1.0"
+description = ""
+authors = ["Noah Kim"]
+readme = "README.md"
+packages = [{include = "09_http_exceptions_status_code"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.86.0"
+uvicorn = "^0.19.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
