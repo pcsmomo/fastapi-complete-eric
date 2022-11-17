@@ -32,10 +32,22 @@ class Book(BaseModel):
         }
 
 
+class BookNoRating(BaseModel):
+    id: UUID
+    title: str = Field(min_length=1)
+    author: str = Field(min_length=1, max_length=100)
+    description1: Optional[str] = Field(None, title="Description of the book", max_length=100, min_length=1)
+    description: Optional[str] = Field(
+        None, title="Description of the book",
+        max_length=100,
+        min_length=1
+    )
+
+
 BOOKS = []
 
 
-@app.exception_handler(NegativeNumberException)
+@ app.exception_handler(NegativeNumberException)
 async def negative_number_exception_handler(request: Request,
                                             exception: NegativeNumberException):
     return JSONResponse(
@@ -45,7 +57,7 @@ async def negative_number_exception_handler(request: Request,
     )
 
 
-@app.get("/")
+@ app.get("/")
 async def read_all_books(books_to_return: Optional[int] = None):
 
     if books_to_return and books_to_return < 0:
@@ -64,7 +76,7 @@ async def read_all_books(books_to_return: Optional[int] = None):
     return BOOKS
 
 
-@app.get("/book/{book_id}")
+@ app.get("/book/{book_id}")
 async def read_book(book_id: UUID):
     for x in BOOKS:
         if x.id == book_id:
@@ -72,13 +84,21 @@ async def read_book(book_id: UUID):
     raise raise_item_cannot_be_found_exception()
 
 
-@app.post("/")
+@ app.get("/book/raiting/{book_id}", response_model=BookNoRating)
+async def read_book_no_rating(book_id: UUID):
+    for x in BOOKS:
+        if x.id == book_id:
+            return x
+    raise raise_item_cannot_be_found_exception()
+
+
+@ app.post("/")
 async def create_book(book: Book):
     BOOKS.append(book)
     return book
 
 
-@app.put("/{book_id}")
+@ app.put("/{book_id}")
 async def update_book(book_id: UUID, book: Book):
     counter = 0
 
@@ -90,7 +110,7 @@ async def update_book(book_id: UUID, book: Book):
     raise raise_item_cannot_be_found_exception()
 
 
-@app.delete("/{book_id}")
+@ app.delete("/{book_id}")
 async def delete_book(book_id: UUID):
     counter = 0
 
