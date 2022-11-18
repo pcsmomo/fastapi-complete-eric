@@ -216,4 +216,9 @@ poetry add sqlalchemy
 uvicorn app.main:app --reload
 ```
 
+```sh
+# set up for docker compose
+docker compose build && docker compose up
+```
+
 </details>

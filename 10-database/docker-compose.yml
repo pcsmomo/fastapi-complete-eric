@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+    app:
+        build: '.'
+        networks:
+            - local
+        ports:
+            - 8000:8000
+        volumes:
+            - ./app:/usr/src/app
+
+networks:
+  local:
+    name: local

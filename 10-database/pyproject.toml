@@ -4,7 +4,6 @@ version = "0.1.0"
 description = ""
 authors = ["Noah Kim"]
 readme = "README.md"
-packages = [{include = "10_database"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
