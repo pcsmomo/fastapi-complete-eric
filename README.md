@@ -209,4 +209,11 @@ poetry add fastapi uvicorn autopep8
 poetry add sqlalchemy
 ```
 
+### 90. FastAPI Project: Main (Create Database Connection for API)
+
+```sh
+# 10-database/TodoApp
+uvicorn main:app --reload
+```
+
 </details>
