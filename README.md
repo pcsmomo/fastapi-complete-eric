@@ -203,7 +203,7 @@ poetry add python-multipart
 ### 88. FastAPI Project: Database Connection with ORM SQLAlchemy
 
 ```sh
-mkdir 10-database && cd 10-database
+mkdir 11-database && cd 11-database
 poetry init
 poetry add fastapi uvicorn autopep8
 poetry add sqlalchemy
@@ -212,7 +212,7 @@ poetry add sqlalchemy
 ### 90. FastAPI Project: Main (Create Database Connection for API)
 
 ```sh
-# 10-database
+# 11-database
 uvicorn app.main:app --reload
 ```
 
@@ -224,7 +224,7 @@ docker compose build && docker compose up
 ### 92. FastAPI Project: Installation of SQLite3 Terminal (Mac)
 
 ```sh
-# 10-database
+# 11-database
 brew install sqlite
 ```
 
@@ -258,6 +258,9 @@ sqlite> delete from todos where id = 4;
 sqlite> insert into todos (title, description, priority, complete) values ('A new test element', 'He is getting hungry', 5, False);
 sqlite> select * from todos;
 sqlite> delete from todos where id = 4;
+
+sqlite> .help
+sqlite> .exit
 ```
 
 </details>
