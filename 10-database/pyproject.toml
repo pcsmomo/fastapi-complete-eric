@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "10-database"
+version = "0.1.0"
+description = ""
+authors = ["Noah Kim"]
+readme = "README.md"
+packages = [{include = "10_database"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.87.0"
+uvicorn = "^0.19.0"
+sqlalchemy = "^1.4.44"
+autopep8 = "^2.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

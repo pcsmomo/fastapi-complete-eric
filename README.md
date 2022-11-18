@@ -198,4 +198,15 @@ uvicorn books2:app --reload
 poetry add python-multipart
 ```
 
+## Section 11. Setup Database
+
+### 88. FastAPI Project: Database Connection with ORM SQLAlchemy
+
+```sh
+mkdir 10-database && cd 10-database
+poetry init
+poetry add fastapi uvicorn autopep8
+poetry add sqlalchemy
+```
+
 </details>
