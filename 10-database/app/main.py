@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-import models
-from database import engine
+import app.models as models
+from app.database import engine
 
 
 app = FastAPI()

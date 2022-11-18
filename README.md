@@ -212,8 +212,8 @@ poetry add sqlalchemy
 ### 90. FastAPI Project: Main (Create Database Connection for API)
 
 ```sh
-# 10-database/TodoApp
-uvicorn main:app --reload
+# 10-database
+uvicorn app.main:app --reload
 ```
 
 </details>
