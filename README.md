@@ -14,6 +14,8 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
     - pydantic: Data validation(typing)
 - 09-http-exceptions-status-code
   - books2.py
+- 11-database (until section 12 api-request-methods)
+  - app : Todo App
 
 ## Details
 

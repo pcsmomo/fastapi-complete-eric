@@ -15,6 +15,7 @@ RUN poetry config virtualenvs.create false
 RUN poetry config installer.parallel false
 RUN poetry install --no-interaction --no-ansi
 
+COPY todos.db ./
 COPY app ./app
 
 # ENTRYPOINT ["uvicorn", "app.main:app", "--reload"]
