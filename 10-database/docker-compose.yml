@@ -9,6 +9,8 @@ services:
             - 8000:8000
         volumes:
             - ./app:/usr/src/app
+    # sqlite:
+    #     image: keinos/sqlite3:latest
 
 networks:
   local:

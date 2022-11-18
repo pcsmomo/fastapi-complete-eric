@@ -221,4 +221,43 @@ uvicorn app.main:app --reload
 docker compose build && docker compose up
 ```
 
+### 92. FastAPI Project: Installation of SQLite3 Terminal (Mac)
+
+```sh
+# 10-database
+brew install sqlite
+```
+
+### 94. FastAPI Project: SQLite3 Setting Up Todos
+
+```sh
+sqlite3 todos.db
+sqlite> .schema
+```
+
+```sql
+sqlite> insert into todos (title, description, priority, complete) values ('Go to the store', 'Pick up eggs', 5, False);
+sqlite> insert into todos (title, description, priority, complete) values ('Cut the lawn', 'Grass is getting long', 3, False);
+sqlite> insert into todos (title, description, priority, complete) values ('Feed the dog', 'He is getting hungry', 5, False);
+sqlite> select * from todos;
+
+sqlite> .mode column
+sqlite> select * from todos;
+
+sqlite> .mode markdown
+sqlite> select * from todos;
+
+sqlite> .mode box
+sqlite> select * from todos;
+
+sqlite> .mode table
+sqlite> select * from todos;
+
+sqlite> insert into todos (title, description, priority, complete) values ('Test element', 'He is getting hungry', 5, False);
+sqlite> delete from todos where id = 4;
+sqlite> insert into todos (title, description, priority, complete) values ('A new test element', 'He is getting hungry', 5, False);
+sqlite> select * from todos;
+sqlite> delete from todos where id = 4;
+```
+
 </details>
