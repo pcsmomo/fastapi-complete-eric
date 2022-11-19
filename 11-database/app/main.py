@@ -58,5 +58,26 @@ async def create_todo(todo: Todo, db: Session = Depends(get_db)):
     }
 
 
+@app.put("/{todo_id}")
+async def update_todo(todo_id: int, todo: Todo, db: Session = Depends(get_db)):
+    todo_model = db.query(models.Todos).filter(models.Todos.id == todo_id).first()
+
+    if todo_model is None:
+        raise http_exception()
+
+    todo_model.title = todo.title
+    todo_model.description = todo.description
+    todo_model.priority = todo.priority
+    todo_model.complete = todo.complete
+
+    db.add(todo_model)
+    db.commit()
+
+    return {
+        'status': 200,
+        'transaction': 'Successful'
+    }
+
+
 def http_exception():
     return HTTPException(status_code=404, detail="Todo not found")
