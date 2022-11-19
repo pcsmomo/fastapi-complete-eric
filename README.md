@@ -346,7 +346,7 @@ models.Base.metadata.create_all(bind=engine)
 ```
 
 ```sh
-uvicorn app.auth:app --reload
+uvicorn app.auth:app --reload --port 9000
 
 # navigate `http://localhost:8000/docs` and add a user
 
@@ -378,5 +378,17 @@ insert into todos (title, description, priority, complete, owner_id) values ('Cu
 insert into todos (title, description, priority, complete, owner_id) values ('Make dinner', 'kids are home', 5, False, 2);
 
 ```
+
+### 117. FastAPI Project: Get Todo (User ID)
+
+```sh
+docker compose build && docker compose up
+# todo app is on port 8000
+# auth service is on port 9000
+```
+
+1. get a token from `http://localhost:9000/docs#/default/login_for_access_token_token_post`
+2. postman get request to `http://localhost:8000/todos/user`
+   - add the token to the 'Authorizaition' -> 'Bearer Token
 
 </details>

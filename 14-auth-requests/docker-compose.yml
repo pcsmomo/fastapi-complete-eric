@@ -10,6 +10,16 @@ services:
         volumes:
             - ./app:/usr/src/app
             - ./todos.db:/usr/src/todos.db
+    auth:
+        build: '.'
+        networks:
+            - local
+        ports:
+            - 9000:9000
+        entrypoint: uvicorn app.auth:app --host=0.0.0.0 --reload --port 9000
+        volumes:
+            - ./app:/usr/src/app
+            - ./todos.db:/usr/src/todos.db
     # sqlite:
     #     image: keinos/sqlite3:latest
 
