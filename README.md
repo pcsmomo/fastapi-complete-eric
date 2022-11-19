@@ -16,6 +16,11 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
   - books2.py
 - 11-database (until section 12 api-request-methods)
   - app : Todo App
+    ```sh
+    uvicorn app.main:app --reload
+    # or
+    docker compose build && docker compose up
+    ```
 
 ## Details
 
@@ -309,5 +314,11 @@ JWT(Json Web Token) Structure
    ```
 
 [jwt.io](https://jwt.io/)
+
+### 104. FastAPI Project: Create Database Table for Users
+
+```sql
+DROP TABLE todos;
+```
 
 </details>
