@@ -360,4 +360,13 @@ sqlite> select * from users;
 poetry add python-multipart
 ```
 
+### 109. FastAPI Project: JSON Web Token (JWT) Creation
+
+```sh
+poetry add "python-jose[cryptography]"
+```
+
+1. navigate `http://localhost:8000/docs#/default/login_for_access_token_token_post`
+2. go to `https://jwt.io/` and check the token we received
+
 </details>
