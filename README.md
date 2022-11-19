@@ -265,4 +265,49 @@ sqlite> .help
 sqlite> .exit
 ```
 
+## Section 13. Authentication & Authorization
+
+### 101. JSON Web Token (JWT) Overview
+
+JWT(Json Web Token) Structure
+
+**aaaaaaaa.bbbbbbbb.cccccccc**
+
+1. Header: (a)
+   - alg: The algorithm for signing
+   - typ: The specific type of token
+   ```json
+   {
+     "alg": "HS256",
+     "typ": "JWT"
+   }
+   ```
+   - The JWT header is then encoded using Base64 to create the first part of the JWT (a)
+2. Payload: (b)
+   - A JWT Paylaod consists of the data. The payloads data contains claims, and there are three different types of claims
+     - Registered
+     - Public
+     - Private
+     ```json
+     {
+       "sub": "1234567890",
+       "name": "Noah Kim",
+       "given_name": "Noah",
+       "family_name": "Kim"
+     }
+     ```
+   - The JWT payload is then encoded using Base64 to create the first part of the JWT (b)
+3. Signature: (c)
+   - A JWT Signature is created by using the algorithm in the header to hash out the encoded header, encoded payload with a secret
+   - The secret can be anything, but it saves somewhere on the server that the client does not have access to
+   - The signature is the thrid and final part of the JWT (c)
+   ```js
+   HMACSHA256(
+     base64UrlEncode(header) + "." + base64UrlEncode(payload),
+     your - 256 - bit - secret
+   );
+   ```
+
+[jwt.io](https://jwt.io/)
+
 </details>
