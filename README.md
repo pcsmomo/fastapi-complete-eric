@@ -354,4 +354,10 @@ sqlite3 todos.db
 sqlite> select * from users;
 ```
 
+### 108. FastAPI Project: Authentication of a User
+
+```sh
+poetry add python-multipart
+```
+
 </details>
