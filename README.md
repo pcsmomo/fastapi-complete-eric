@@ -331,4 +331,10 @@ DROP TABLE todos;
 uvicorn app.auth:app --reload
 ```
 
+### 106. FastAPI Project: Hash User Password
+
+```sh
+poetry add "passlib[bcrypt]"
+```
+
 </details>
