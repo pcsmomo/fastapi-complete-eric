@@ -369,4 +369,14 @@ poetry add "python-jose[cryptography]"
 1. navigate `http://localhost:8000/docs#/default/login_for_access_token_token_post`
 2. go to `https://jwt.io/` and check the token we received
 
+### 116. FastAPI Project: Setting up Database with User and Todo Relationships
+
+```sql
+-- before this, add two users via the docs page on the web
+insert into todos (title, description, priority, complete, owner_id) values ('Take out the dog', 'he needs to use the batnroom', 5, False, 1);
+insert into todos (title, description, priority, complete, owner_id) values ('Cut the grass', 'it is get till long', 5, False, 1);
+insert into todos (title, description, priority, complete, owner_id) values ('Make dinner', 'kids are home', 5, False, 2);
+
+```
+
 </details>
