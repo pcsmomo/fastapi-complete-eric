@@ -337,4 +337,21 @@ uvicorn app.auth:app --reload
 poetry add "passlib[bcrypt]"
 ```
 
+### 107. FastAPI Project: Save User to Database
+
+```py
+models.Base.metadata.create_all(bind=engine)
+# https://docs.sqlalchemy.org/en/13/orm/extensions/declarative/basic_use.html#accessing-the-metadata
+# The declarative_base() base class contains a MetaData object where newly defined Table objects are collected. This object is intended to be accessed directly for MetaData-specific operations. Such as, to issue CREATE statements for all tables:
+```
+
+```sh
+uvicorn app.auth:app --reload
+
+# navigate `http://localhost:8000/docs` and add a user
+
+sqlite3 todos.db
+sqlite> select * from users;
+```
+
 </details>
