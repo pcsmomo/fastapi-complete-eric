@@ -5,7 +5,7 @@ from passlib.context import CryptContext
 from sqlalchemy.orm import Session
 from fastapi.security import OAuth2PasswordRequestForm, OAuth2PasswordBearer
 from datetime import datetime, timedelta
-from jose import jwt
+from jose import JWTError, jwt
 
 import app.models as models
 from app.database import SessionLocal, engine
@@ -69,6 +69,18 @@ def create_access_token(username: str, user_id: int, expires_delta: Optional[tim
         expire = datetime.utcnow() + timedelta(minutes=15)
     encode.update({"exp": expire})
     return jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
+
+
+async def get_current_user(token: str = Depends(oauth2_bearer)):
+    try:
+        payload: jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        username: str = payload.get("sub")
+        user_id: str = payload.get("id")
+        if username is None or user_id is None:
+            raise HTTPException(status_code=404, detail="User not found")
+        return {"username": username, "id": user_id}
+    except JWTError:
+        raise HTTPException(status_code=404, detail="User not found")
 
 
 @app.post("/create/user")
