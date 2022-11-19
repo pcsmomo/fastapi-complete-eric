@@ -21,6 +21,10 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
     # or
     docker compose build && docker compose up
     ```
+    - create user service
+    ```sh
+    uvicorn app.auth:app --reload
+    ```
 
 ## Details
 
@@ -319,6 +323,12 @@ JWT(Json Web Token) Structure
 
 ```sql
 DROP TABLE todos;
+```
+
+### 105. FastAPI Project: Create Authentication & Post Request
+
+```sh
+uvicorn app.auth:app --reload
 ```
 
 </details>
