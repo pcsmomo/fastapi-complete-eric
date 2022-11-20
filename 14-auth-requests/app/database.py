@@ -13,6 +13,10 @@ engine = create_engine(
 # SQLALCHEMY_DATABASE_URL = "postgresql://{id}:{password}@localhost/{database_name}"
 # engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
+# mysql
+# SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{id}:{password}@127.0.0.1:3306/{database_name}"
+# engine = create_engine(SQLALCHEMY_DATABASE_URL)
+
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()

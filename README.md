@@ -410,4 +410,12 @@ docker compose build && docker compose up
 poetry add psycopg2-binary
 ```
 
+### 133. FastAPI Project: Create Database Tables
+
+### 134. FastAPI Project: Connect FastAPI to MySQL
+
+```sh
+poetry add pymysql
+```
+
 </details>
