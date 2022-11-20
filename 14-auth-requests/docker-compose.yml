@@ -20,14 +20,23 @@ services:
         volumes:
             - ./app:/usr/src/app
             - ./todos.db:/usr/src/todos.db
-    db:
-        image: postgres
-        networks:
-            - local
-        ports:
-            - 5432:5432
-        environment:
-            POSTGRES_PASSWORD: example
+    # postgres:
+    #     image: postgres
+    #     networks:
+    #         - local
+    #     ports:
+    #         - 5432:5432
+    #     environment:
+    #         POSTGRES_PASSWORD: example
+    # mysql:
+    #     image: mysql
+    #     networks:
+    #         - local
+    #     ports:
+    #         - 3306:3306
+    #     command: --default-authentication-plugin=mysql_native_password
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: example
 
 networks:
   local:
