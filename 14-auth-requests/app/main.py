@@ -79,8 +79,17 @@ async def create_todo(todo: Todo,
 
 
 @app.put("/{todo_id}")
-async def update_todo(todo_id: int, todo: Todo, db: Session = Depends(get_db)):
-    todo_model = db.query(models.Todos).filter(models.Todos.id == todo_id).first()
+async def update_todo(todo_id: int,
+                      todo: Todo,
+                      user: dict = Depends(get_current_user),
+                      db: Session = Depends(get_db)):
+    if user is None:
+        raise get_user_exception()
+
+    todo_model = db.query(models.Todos)\
+        .filter(models.Todos.id == todo_id)\
+        .filter(models.Todos.owner_id == user.get("id"))\
+        .first()
 
     if todo_model is None:
         raise http_exception()
