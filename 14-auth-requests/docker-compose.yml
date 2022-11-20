@@ -20,8 +20,14 @@ services:
         volumes:
             - ./app:/usr/src/app
             - ./todos.db:/usr/src/todos.db
-    # sqlite:
-    #     image: keinos/sqlite3:latest
+    db:
+        image: postgres
+        networks:
+            - local
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_PASSWORD: example
 
 networks:
   local:

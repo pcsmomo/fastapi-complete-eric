@@ -391,4 +391,23 @@ docker compose build && docker compose up
 2. postman get request to `http://localhost:8000/todos/user`
    - add the token to the 'Authorizaition' -> 'Bearer Token
 
+## Section 15. Production Database Setup
+
+### 126. FastAPI Project: PostgreSQL Mac Installation
+
+- [PostgreSQL](https://www.postgresql.org/download/)
+  - Or using homebrew
+- Tools
+  - [pgAdmin4](https://www.pgadmin.org/download/)
+  - [postico](https://eggerapps.at/postico2/)
+  - [DBeaver](https://dbeaver.io/)
+
+### 127. FastAPI Project: PostgreSQL Create Database Table
+
+### 128. FastAPI Project: PostgreSQL Connect to FastAPI
+
+```sh
+poetry add psycopg2-binary
+```
+
 </details>
