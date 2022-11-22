@@ -6,10 +6,13 @@ from pydantic import BaseModel, Field
 import app.models as models
 from app.database import engine, SessionLocal
 from app.routers.auth import get_current_user, get_user_exception
+from app.routers import auth
 
 app = FastAPI()
 
 models.Base.metadata.create_all(bind=engine)
+
+app.include_router(auth.router)
 
 
 def get_db():
