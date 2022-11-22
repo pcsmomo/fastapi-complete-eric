@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+    app:
+        build: '.'
+        networks:
+            - local
+        ports:
+            - 8000:8000
+        volumes:
+            - ./app:/usr/src/app
+            - ./todos.db:/usr/src/todos.db
+    auth:
+        build: '.'
+        networks:
+            - local
+        ports:
+            - 9000:9000
+        entrypoint: uvicorn app.auth:app --host=0.0.0.0 --reload --port 9000
+        volumes:
+            - ./app:/usr/src/app
+            - ./todos.db:/usr/src/todos.db
+    # postgres:
+    #     image: postgres
+    #     networks:
+    #         - local
+    #     ports:
+    #         - 5432:5432
+    #     environment:
+    #         POSTGRES_PASSWORD: example
+    # mysql:
+    #     image: mysql
+    #     networks:
+    #         - local
+    #     ports:
+    #         - 3306:3306
+    #     command: --default-authentication-plugin=mysql_native_password
+    #     environment:
+    #         MYSQL_ROOT_PASSWORD: example
+
+networks:
+  local:
+    name: local
