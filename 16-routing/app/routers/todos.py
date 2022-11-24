@@ -10,7 +10,11 @@ from .auth import get_current_user, get_user_exception
 import sys
 sys.path.append("..")
 
-router = APIRouter()
+router = APIRouter(
+    prefix="/todos",
+    tags=["todos"],
+    responses={404: {"description": "Not found"}}
+)
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -36,7 +40,7 @@ async def read_all(db: Session = Depends(get_db)):
     return db.query(models.Todos).all()
 
 
-@router.get("/todos/user")
+@router.get("/user")
 async def read_all_by_user(user: dict = Depends(get_current_user),
                            db: Session = Depends(get_db)):
     if user is None:
@@ -45,7 +49,7 @@ async def read_all_by_user(user: dict = Depends(get_current_user),
     return db.query(models.Todos).filter(models.Todos.owner_id == user.get("id")).all()
 
 
-@router.get("/todo/{todo_id}")
+@router.get("/{todo_id}")
 async def read_todo(todo_id: int,
                     user: dict = Depends(get_current_user),
                     db: Session = Depends(get_db)):
