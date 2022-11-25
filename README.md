@@ -418,4 +418,22 @@ poetry add psycopg2-binary
 poetry add pymysql
 ```
 
+## Section 17. Alembic Data Migration
+
+### Create PostgreSQL database and connect it via docker compose
+
+1. install psycopg2-binary
+   ```sh
+   poetry add psycopg2-binary
+   ```
+2. add `postgres` docker image in the `docker-compose.yml`
+   - in the `todo-app`, sqlalchemy couln't connect to postgres on m1 mac
+   - [`sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) SCRAM authentication requires libpq version 10 or above`](https://github.com/psycopg/psycopg2/issues/1360)
+   - I had to downgrade to postgres 13 - [reference](https://github.com/ojgenbar/RZDTicketsMonitor/pull/23)
+   - and it works!
+3. install [DBEAVER - database tool](https://dbeaver.io/)
+4. create a database with example credentials (see [`docker-compose.yml`](./17-alembic/docker-compose.yml))
+5. create tables and insert some data ([`create_tables.sql`](./17-alembic/db-queries/PostgreSQL/create_tables))
+6. sqlalchemy is amazing. `Sqlite` to `PostgreSQL`, no code change at all (except the connection)
+
 </details>

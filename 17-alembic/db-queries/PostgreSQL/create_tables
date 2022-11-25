@@ -1,4 +1,5 @@
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users cascade;
+DROP TABLE IF EXISTS todos;
 
 CREATE TABLE users (
   id SERIAL,
@@ -11,8 +12,6 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS todos;
-
 CREATE TABLE todos (
   id SERIAL,
   title varchar(200) DEFAULT NULL,
@@ -23,3 +22,11 @@ CREATE TABLE todos (
   PRIMARY KEY (id),
   FOREIGN KEY (owner_id) REFERENCES users(id)
 );
+
+-- Create two users from the browser, http://localhost:8000/docs#/auth/create_new_user_auth_create_user_post
+
+
+-- And create todos
+insert into todos (title, description, priority, complete, owner_id) values ('Take out the dog', 'he needs to use the batnroom', 5, False, 1);
+insert into todos (title, description, priority, complete, owner_id) values ('Cut the grass', 'it is get till long', 5, False, 1);
+insert into todos (title, description, priority, complete, owner_id) values ('Make dinner', 'kids are home', 5, False, 2);

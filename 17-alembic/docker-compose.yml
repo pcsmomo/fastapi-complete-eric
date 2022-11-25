@@ -4,21 +4,33 @@ services:
     app:
         build: '.'
         networks:
-            - local
+            - todo-app-network
         ports:
             - 8000:8000
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: example
+            POSTGRES_DB: TodoAppDatabase
         volumes:
             - ./app:/usr/src/app
             - ./todos.db:/usr/src/todos.db
+        depends_on:
+            - postgres-db
 
-    # postgres:
-    #     image: postgres
-    #     networks:
-    #         - local
-    #     ports:
-    #         - 5432:5432
-    #     environment:
-    #         POSTGRES_PASSWORD: example
+    postgres-db:
+        # sqlalchemy couln't connect to postgres on m1 mac
+        # sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) SCRAM authentication requires libpq version 10 or above
+        # https://github.com/psycopg/psycopg2/issues/1360
+        # downgrade to 13: https://github.com/ojgenbar/RZDTicketsMonitor/pull/23
+        image: postgres:13
+        networks:
+            - todo-app-network
+        ports:
+            - 5432:5432
+        environment:
+            POSTGRES_PASSWORD: example
+        volumes:
+            - todo-app-db-vol:/var/lib/postgresql/data
     
     # mysql:
     #     image: mysql
@@ -30,6 +42,9 @@ services:
     #     environment:
     #         MYSQL_ROOT_PASSWORD: example
 
+volumes:
+    todo-app-db-vol:
+
 networks:
-  local:
-    name: local
+    todo-app-network:
+        name: todo-app-network
