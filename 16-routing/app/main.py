@@ -1,9 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 
 import app.models as models
 from app.database import engine
 from app.routers import auth, todos
-from app.company import companyapis
+from app.company import companyapis, dependencies
 
 app = FastAPI()
 
@@ -15,5 +15,6 @@ app.include_router(
     companyapis.router,
     prefix="/compnayapis",
     tags=["companyapis"],
+    dependencies=[Depends(dependencies.get_token_header)],
     responses={418: {"description": "Internal Use Only"}}
 )
