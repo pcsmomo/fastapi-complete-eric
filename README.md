@@ -474,4 +474,8 @@ alembic init alembic
 In the lecture, he moved all app code to the root \
 But I still keep them under app
 
+### 150. Alembic Add New Column
+
+1. modify `alembic.ini` and `alembic/env.py`
+
 </details>

@@ -4,6 +4,6 @@
     "editor.tabSize": 4,
     "editor.formatOnSave": true
   },
-  "python.defaultInterpreterPath": "/Users/noah/Library/Caches/pypoetry/virtualenvs/13-authentication-9PnxHKFp-py3.10/bin/python",
+  "python.defaultInterpreterPath": "/Users/noah/Library/Caches/pypoetry/virtualenvs/17-alembic-iIsYoAfK-py3.10/bin/python",
   "python.analysis.extraPaths": ["app", "another/path/etc"]
 }
