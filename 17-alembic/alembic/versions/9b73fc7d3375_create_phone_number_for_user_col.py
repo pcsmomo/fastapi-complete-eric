@@ -1,7 +1,7 @@
 """create phone number for user col
 
 Revision ID: 9b73fc7d3375
-Revises: 
+Revises:
 Create Date: 2022-11-27 10:22:49.232107
 
 """
@@ -17,7 +17,7 @@ depends_on = None
 
 
 def upgrade() -> None:
-    pass
+    op.add_column('users', sa.Column('phone_number', sa.String(), nullable=True))
 
 
 def downgrade() -> None:

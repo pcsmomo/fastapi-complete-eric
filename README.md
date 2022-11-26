@@ -479,6 +479,7 @@ But I still keep them under app
 1. modify `alembic.ini` and `alembic/env.py`
 2. create a new revision
    ```sh
+   poetry shell
    alembic revision -m "create phone number for user col"
    # Generating /Users/noah/Documents/study/study_codes/udemy/fastapi-complete-eric/fastapi-complete-eric-git/17-alembic/alembic/versions/9b73fc7d3375_create_phone_number_for_user_col.py ...  done
    ```
@@ -486,6 +487,21 @@ But I still keep them under app
    -- check on the table
    select * from users;
    -- there's no phone number column
+   ```
+3. modify `alembic/versions/9b73fc7d3375_create_phone_number_for_user_col.py`
+   ```sh
+   alembic upgrade 9b73fc7d3375
+   # INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+   # INFO  [alembic.runtime.migration] Will assume transactional DDL.
+   # INFO  [alembic.runtime.migration] Running upgrade  -> 9b73fc7d3375, create phone number for user col
+   ```
+   ```sql
+   -- check on the table
+   select * from users;
+   -- phone_number column has been created!
+   ```
+   ```sh
+   alembic --help
    ```
 
 </details>
