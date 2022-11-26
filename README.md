@@ -477,5 +477,15 @@ But I still keep them under app
 ### 150. Alembic Add New Column
 
 1. modify `alembic.ini` and `alembic/env.py`
+2. create a new revision
+   ```sh
+   alembic revision -m "create phone number for user col"
+   # Generating /Users/noah/Documents/study/study_codes/udemy/fastapi-complete-eric/fastapi-complete-eric-git/17-alembic/alembic/versions/9b73fc7d3375_create_phone_number_for_user_col.py ...  done
+   ```
+   ```sql
+   -- check on the table
+   select * from users;
+   -- there's no phone number column
+   ```
 
 </details>
