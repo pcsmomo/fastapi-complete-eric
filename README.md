@@ -488,7 +488,7 @@ But I still keep them under app
    select * from users;
    -- there's no phone number column
    ```
-3. modify `alembic/versions/9b73fc7d3375_create_phone_number_for_user_col.py`
+3. add the upgrade script in `alembic/versions/9b73fc7d3375_create_phone_number_for_user_col.py`
    ```sh
    alembic upgrade 9b73fc7d3375
    # INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
@@ -502,6 +502,17 @@ But I still keep them under app
    ```
    ```sh
    alembic --help
+   ```
+4. add the downgrade script in `alembic/versions/9b73fc7d3375_create_phone_number_for_user_col.py`
+   ```sh
+   alembic downgrade -1
+   # INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+   # INFO  [alembic.runtime.migration] Will assume transactional DDL.
+   # INFO  [alembic.runtime.migration] Running downgrade 9b73fc7d3375 -> , create phone number for user col
+   ```
+   ```sh
+   # create it back
+   alembic upgrade 9b73fc7d3375
    ```
 
 </details>

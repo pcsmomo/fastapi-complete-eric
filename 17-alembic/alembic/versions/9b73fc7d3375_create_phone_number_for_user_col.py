@@ -21,4 +21,4 @@ def upgrade() -> None:
 
 
 def downgrade() -> None:
-    pass
+    op.drop_column('users', 'phone_number')
