@@ -436,4 +436,32 @@ poetry add pymysql
 5. create tables and insert some data ([`create_tables.sql`](./17-alembic/db-queries/PostgreSQL/create_tables))
 6. sqlalchemy is amazing. `Sqlite` to `PostgreSQL`, no code change at all (except the connection)
 
+### 147. Alembic Introduction
+
+[Alembic Document](https://alembic.sqlalchemy.org/en/latest/)
+
+```sh
+poetry add alembic
+```
+
+#### Alembic Example
+
+- `alembic init <folder name>`
+  - initializes a new, generic environment
+- `alembic revision -m <message>`
+  - creates a new revision of the environment
+- `alembic upgrade <revision #>`
+  - run our upgrade migration to our database
+- `alembic downgrade <revision #>`
+  - run our downgrade migration to our database
+
+#### How does alembic work?
+
+- `alembic.ini` file
+  - configuration for alembic
+- `alembic` directory
+  - has all environmental properties for alembic
+  - hold all revisions of the application
+  - where we call migrations for upgrading and downgrading
+
 </details>
