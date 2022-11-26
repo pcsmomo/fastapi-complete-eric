@@ -464,4 +464,14 @@ poetry add alembic
   - hold all revisions of the application
   - where we call migrations for upgrading and downgrading
 
+### 148. Alembic Setup
+
+```sh
+# ./17-alembic
+alembic init alembic
+```
+
+In the lecture, he moved all app code to the root \
+But I still keep them under app
+
 </details>

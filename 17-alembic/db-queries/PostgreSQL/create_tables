@@ -1,3 +1,5 @@
+-- Create a new database, TodoAppDatabase
+
 DROP TABLE IF EXISTS users cascade;
 DROP TABLE IF EXISTS todos;
 
