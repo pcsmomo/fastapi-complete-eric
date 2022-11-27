@@ -4,42 +4,52 @@ services:
     app:
         build: '.'
         networks:
-            - local
+            - todo-app-network
         ports:
             - 8000:8000
+        environment:
+            MYSQL_USER: root
+            MYSQL_PASSWORD: example
+            MYSQL_ADDR: mysql-db
+            MYSQL_PORT: 3306
+            MYSQL_DB: TodoAppDatabase
         volumes:
             - ./app:/usr/src/app
-            - ./todos.db:/usr/src/todos.db
-    # auth:
-    #     build: '.'
-    #     networks:
-    #         - local
-    #     ports:
-    #         - 9000:9000
-    #     entrypoint: uvicorn app.auth:app --host=0.0.0.0 --reload --port 9000
-    #     volumes:
-    #         - ./app:/usr/src/app
-    #         - ./todos.db:/usr/src/todos.db
+            # - ./todos.db:/usr/src/todos.db
+        depends_on:
+            mysql-db:
+                condition: service_healthy
 
     # postgres:
     #     image: postgres
     #     networks:
-    #         - local
+    #         - todo-app-network
     #     ports:
     #         - 5432:5432
     #     environment:
     #         POSTGRES_PASSWORD: example
     
-    # mysql:
-    #     image: mysql
-    #     networks:
-    #         - local
-    #     ports:
-    #         - 3306:3306
-    #     command: --default-authentication-plugin=mysql_native_password
-    #     environment:
-    #         MYSQL_ROOT_PASSWORD: example
+    mysql-db:
+        image: mysql
+        networks:
+            - todo-app-network
+        ports:
+            - 3306:3306
+        command: --default-authentication-plugin=mysql_native_password
+        environment:
+            MYSQL_ROOT_PASSWORD: example
+        volumes:
+            - todo-app-mysql-db-vol:/var/lib/mysql
+        healthcheck:
+            test: ["CMD", "curl", "-f", "http://localhost:3306"]
+            interval: 1s
+            timeout: 10s
+            retries: 5
+
+
+volumes:
+    todo-app-mysql-db-vol:
 
 networks:
-  local:
-    name: local
+    todo-app-network:
+        name: todo-app-network

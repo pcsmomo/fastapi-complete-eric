@@ -25,6 +25,14 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
     ```sh
     uvicorn app.auth:app --reload
     ```
+- 16-routing
+  - `docker compose build && docker compose up`
+- 17-alembic
+  - `docker compose build && docker compose up`
+  - python backend and PostgreSQL
+- 18-fullstack
+  - `docker compose build && docker compose up`
+  - python backend, static and MySQL
 
 ## Details
 
@@ -544,5 +552,22 @@ But I still keep them under app
 2. add upgrade and downgrade scripts
 3. execute upgrade
    `alembic upgrade c511ac47feb4`
+
+## Section 18. Project 4 - Full Stack Application
+
+### Create MySQL database and connect it via docker compose
+
+1. install pymysql
+   ```shm
+   poetry add pymysql
+   ```
+2. add `mysql` docker image in the `docker-compose.yml`
+3. install [DBEAVER - database tool](https://dbeaver.io/)
+4. create a database with example credentials (see [`docker-compose.yml`](./18-fullstack/docker-compose.yml))
+5. create tables and insert some data ([`create_tables.sql`](./18-fullstack/db-queries/MySQL/create_tables))
+6. modify service to check health (see [`docker-compose.yml`](./18-fullstack/docker-compose.yml))
+   - added `healthcheck`
+     - even though `depends_on` was added, the `todo-app` couldn't connect mysql at the first time
+7. sqlalchemy is amazing. `Sqlite` to `MySQK`, no code change at all (except the connection)
 
 </details>

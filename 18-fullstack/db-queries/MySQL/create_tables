@@ -23,3 +23,17 @@ CREATE TABLE `todos` (
   PRIMARY KEY (`id`),
   FOREIGN KEY (`owner_id`) REFERENCES users(`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+
+-- Create two users from the browser, http://localhost:8000/docs#/auth/create_new_user_auth_create_user_post
+-- {
+--   "username": "noahkim",
+--   "email": "noahkim@test.com",
+--   "first_name": "noah",
+--   "last_name": "kim",
+--   "password": "test1234!"
+-- }
+
+-- And create todos
+insert into todos (title, description, priority, complete, owner_id) values ('Take out the dog', 'he needs to use the batnroom', 5, False, 1);
+insert into todos (title, description, priority, complete, owner_id) values ('Cut the grass', 'it is get till long', 5, False, 1);
+insert into todos (title, description, priority, complete, owner_id) values ('Make dinner', 'kids are home', 5, False, 2);
