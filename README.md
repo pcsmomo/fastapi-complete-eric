@@ -423,7 +423,7 @@ poetry add pymysql
 ### Create PostgreSQL database and connect it via docker compose
 
 1. install psycopg2-binary
-   ```sh
+   ```shm
    poetry add psycopg2-binary
    ```
 2. add `postgres` docker image in the `docker-compose.yml`
@@ -513,6 +513,19 @@ But I still keep them under app
    ```sh
    # create it back
    alembic upgrade 9b73fc7d3375
+   ```
+
+### 151. Alembic Create New Database Table
+
+1. create a new revision
+   ```sh
+   alembic revision -m "Create address table"
+   # Generating /Users/noah/Documents/study/study_codes/udemy/fastapi-complete-eric/fastapi-complete-eric-git/17-alembic/alembic/versions/181d687473a4_create_address_table.py ...  done
+   ```
+2. add upgrade and downgrade scripts
+3. execute upgrade
+   ```sh
+   alembic upgrade 181d687473a4
    ```
 
 </details>
