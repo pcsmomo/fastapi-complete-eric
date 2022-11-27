@@ -164,6 +164,44 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "create address  with authorization",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJub2Foa2ltIiwiaWQiOjEsImV4cCI6MTY2OTUxNzI2M30.cuuYUe1ISM6IevPs6qvWgGg6s8Ky8FmqfKBkH5UrTL4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"address1\": \"200 Rose Lane\",\n  \"address2\": \"\",\n  \"city\": \"Melbourne\",\n  \"state\": \"VIC\",\n  \"country\": \"Australia\",\n  \"postalcode\": \"3000\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8000/address/",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"address",
+						""
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
