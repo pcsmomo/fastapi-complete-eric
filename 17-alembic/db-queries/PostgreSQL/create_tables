@@ -1,28 +1,46 @@
 -- Create a new database, TodoAppDatabase
 
 DROP TABLE IF EXISTS users cascade;
-DROP TABLE IF EXISTS todos;
 
 CREATE TABLE users (
-  id SERIAL,
-  email varchar(200) DEFAULT NULL,
-  username varchar(45) DEFAULT NULL,
-  first_name varchar(45) DEFAULT NULL,
-  last_name varchar(45) DEFAULT NULL,
-  hashed_password varchar(200) DEFAULT NULL,
-  is_active boolean DEFAULT NULL,
-  PRIMARY KEY (id)
+	id serial4 NOT NULL,
+	email varchar(200) NULL DEFAULT NULL,
+	username varchar(45) NULL DEFAULT NULL,
+	first_name varchar(45) NULL DEFAULT NULL,
+	last_name varchar(45) NULL DEFAULT NULL,
+	hashed_password varchar(200) NULL DEFAULT NULL,
+	is_active bool NULL,
+	phone_number varchar NULL,
+	address_id int4 NULL,
+	CONSTRAINT users_pkey PRIMARY KEY (id),
+	CONSTRAINT address_users_fk FOREIGN KEY (address_id) REFERENCES address(id) ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS todos cascade;
+
 CREATE TABLE todos (
-  id SERIAL,
-  title varchar(200) DEFAULT NULL,
-  description varchar(200) DEFAULT NULL,
-  priority integer  DEFAULT NULL,
-  complete boolean  DEFAULT NULL,
-  owner_id integer  DEFAULT NULL,
-  PRIMARY KEY (id),
-  FOREIGN KEY (owner_id) REFERENCES users(id)
+	id serial4 NOT NULL,
+	title varchar(200) NULL DEFAULT NULL,
+	description varchar(200) NULL DEFAULT NULL,
+	priority int4 NULL,
+	complete bool NULL,
+	owner_id int4 NULL,
+	CONSTRAINT todos_pkey PRIMARY KEY (id),
+	CONSTRAINT todos_owner_id_fkey FOREIGN KEY (owner_id) REFERENCES users(id)
+);
+
+DROP TABLE IF EXISTS address cascade;
+
+CREATE TABLE address (
+	id serial4 NOT NULL,
+	address1 varchar NOT NULL,
+	address2 varchar NOT NULL,
+	city varchar NOT NULL,
+	state varchar NOT NULL,
+	country varchar NOT NULL,
+	postalcode varchar NOT NULL,
+	apt_num int4 NULL,
+	CONSTRAINT address_pkey PRIMARY KEY (id)
 );
 
 -- Create two users from the browser, http://localhost:8000/docs#/auth/create_new_user_auth_create_user_post
