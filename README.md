@@ -531,4 +531,18 @@ But I still keep them under app
 6. execute upgrade
    `alembic upgrade 4f808f0d858c`
 
+### 155. FastAPI Solution
+
+1. Add a `phone number` as a required field for a user during registration (string).
+2. Create a new column on `address`, that is called `apt_num`
+3. Enable the application to now use the `apt_num` as an optional field for the address of the user
+
+#### alembic
+
+1. create a new revision
+   `alembic revision -m "add apt num col"`
+2. add upgrade and downgrade scripts
+3. execute upgrade
+   `alembic upgrade c511ac47feb4`
+
 </details>
