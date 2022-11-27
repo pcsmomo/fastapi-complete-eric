@@ -570,4 +570,11 @@ But I still keep them under app
      - even though `depends_on` was added, the `todo-app` couldn't connect mysql at the first time
 7. sqlalchemy is amazing. `Sqlite` to `MySQK`, no code change at all (except the connection)
 
+### 160. FastAPI Full Stack - Pip Requirements and Templates
+
+```sh
+poetry add aiofiles
+poetry add jinja2
+```
+
 </details>
