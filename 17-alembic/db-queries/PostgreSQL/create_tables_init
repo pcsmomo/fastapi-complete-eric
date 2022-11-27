@@ -26,7 +26,13 @@ CREATE TABLE todos (
 );
 
 -- Create two users from the browser, http://localhost:8000/docs#/auth/create_new_user_auth_create_user_post
-
+-- {
+--   "username": "noahkim",
+--   "email": "noahkim@test.com",
+--   "first_name": "noahkim",
+--   "last_name": "noahkim",
+--   "password": "test1234!"
+-- }
 
 -- And create todos
 insert into todos (title, description, priority, complete, owner_id) values ('Take out the dog', 'he needs to use the batnroom', 5, False, 1);

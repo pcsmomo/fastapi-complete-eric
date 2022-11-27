@@ -13,7 +13,7 @@ services:
             POSTGRES_DB: TodoAppDatabase
         volumes:
             - ./app:/usr/src/app
-            - ./todos.db:/usr/src/todos.db
+            # - ./todos.db:/usr/src/todos.db
         depends_on:
             - postgres-db
 
@@ -35,7 +35,7 @@ services:
     # mysql:
     #     image: mysql
     #     networks:
-    #         - local
+    #         - todo-app-network
     #     ports:
     #         - 3306:3306
     #     command: --default-authentication-plugin=mysql_native_password
