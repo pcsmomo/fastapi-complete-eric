@@ -26,6 +26,7 @@ class CreateUser(BaseModel):
     first_name: str
     last_name: str
     password: str
+    phone_number: Optional[str]
 
 
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -97,6 +98,7 @@ async def create_new_user(create_user: CreateUser, db: Session = Depends(get_db)
     create_user_model.username = create_user.username
     create_user_model.first_name = create_user.email
     create_user_model.last_name = create_user.last_name
+    create_user_model.phone_number = create_user.phone_number
 
     hashed_password = get_password_hash(create_user.password)
 
