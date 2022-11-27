@@ -519,13 +519,16 @@ But I still keep them under app
 
 1. create a new revision
    ```sh
-   alembic revision -m "Create address table"
+   alembic revision -m "create address table"
    # Generating /Users/noah/Documents/study/study_codes/udemy/fastapi-complete-eric/fastapi-complete-eric-git/17-alembic/alembic/versions/181d687473a4_create_address_table.py ...  done
    ```
 2. add upgrade and downgrade scripts
 3. execute upgrade
-   ```sh
-   alembic upgrade 181d687473a4
-   ```
+   `alembic upgrade 181d687473a4`
+4. create a new revision
+   `alembic revision -m "create address_id to users"`
+5. add upgrade and downgrade scripts
+6. execute upgrade
+   `alembic upgrade 4f808f0d858c`
 
 </details>
