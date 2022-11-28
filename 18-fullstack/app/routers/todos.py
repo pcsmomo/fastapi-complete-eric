@@ -41,7 +41,7 @@ class Todo(BaseModel):
 
 @router.get("/test")
 async def test(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})  # context
+    return templates.TemplateResponse("add-todo.html", {"request": request})  # context
 
 
 @router.get("/")
