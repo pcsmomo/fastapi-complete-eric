@@ -28,6 +28,7 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
 - 16-routing
   - `docker compose build && docker compose up`
 - 17-alembic
+  - the completed version of `/todos` API!
   - `docker compose build && docker compose up`
   - python backend and PostgreSQL
 - 18-fullstack
