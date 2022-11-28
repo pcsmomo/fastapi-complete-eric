@@ -49,6 +49,32 @@
     </div>
 
     <!-- Container -->
+    <div class="container">
+      <div class="card">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" class="form-control" name="email" required />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                required
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+        <div class="card-footer text-muted">
+          <a href="#">Register?</a>
+        </div>
+      </div>
+    </div>
 
     <!-- Scripts -->
     <script src="{{ url_for('static', path='/todo/js/jquery-slim.js') }}"></script>
