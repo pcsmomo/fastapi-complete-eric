@@ -18,32 +18,22 @@
           </tr>
         </thead>
         <tbody>
+          {% for todo in todos %}
           <tr class="pointer">
-            <td>1</td>
-            <td id="td1">Take out the trash</td>
+            <td>{{loop.index}}</td>
+            <td id="td1">{{todo.title}}</td>
             <td>
               <button type="button" class="btn btn-success">Complete</button>
-              <button type="button" class="btn btn-danger">Delete</button>
+              <button
+                onClick="window.location.href='edit-todo/{{todo.id}}'"
+                type="button"
+                class="btn btn-info"
+              >
+                Edit
+              </button>
             </td>
           </tr>
-
-          <tr class="pointer">
-            <td>2</td>
-            <td>Take out the trash</td>
-            <td>
-              <button type="button" class="btn btn-success">Complete</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
-
-          <tr class="pointer">
-            <td>3</td>
-            <td>Take out the trash</td>
-            <td>
-              <button type="button" class="btn btn-success">Complete</button>
-              <button type="button" class="btn btn-danger">Delete</button>
-            </td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
 

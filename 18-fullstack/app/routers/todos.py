@@ -33,8 +33,11 @@ def get_db():
 
 
 @router.get("/", response_class=HTMLResponse)
-async def read_all_by_user(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
+async def read_all_by_user(request: Request, db: Session = Depends(get_db)):
+
+    todos = db.query(models.Todos).filter(models.Todos.owner_id == 1).all()
+
+    return templates.TemplateResponse("home.html", {"request": request, "todos": todos})
 
 
 @router.get("/add-todo", response_class=HTMLResponse)
