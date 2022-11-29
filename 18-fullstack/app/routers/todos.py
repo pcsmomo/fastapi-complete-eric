@@ -65,5 +65,8 @@ async def create_todo(request: Request, title: str = Form(), description: str = 
 
 
 @router.get("/edit-todo/{todo_id}", response_class=HTMLResponse)
-async def add_new_todo(request: Request):
-    return templates.TemplateResponse("edit-todo.html", {"request": request})
+async def add_new_todo(request: Request, todo_id: int, db: Session = Depends(get_db)):
+
+    todo = db.query(models.Todos).filter(models.Todos.id == todo_id).first()
+
+    return templates.TemplateResponse("edit-todo.html", {"request": request, "todo": todo})

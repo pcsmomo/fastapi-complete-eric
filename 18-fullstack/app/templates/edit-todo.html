@@ -7,7 +7,13 @@
       <form>
         <div class="form-group">
           <label>Title</label>
-          <input type="text" class="form-control" name="title" required />
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            value="{{todo.title}}"
+            required
+          />
         </div>
         <div class="form-group">
           <label>Description</label>
@@ -16,16 +22,16 @@
             rows="3"
             name="description"
             required
-          ></textarea>
+          >{{todo.description}}</textarea>
         </div>
         <div class="form-group">
           <label>Priority</label>
           <select class="form-control" name="priority">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option {% if todo.priority == 1%} selected {% endif %} >1</option>
+            <option {% if todo.priority == 2%} selected {% endif %} >2</option>
+            <option {% if todo.priority == 3%} selected {% endif %} >3</option>
+            <option {% if todo.priority == 4%} selected {% endif %} >4</option>
+            <option {% if todo.priority == 5%} selected {% endif %} >5</option>
           </select>
         </div>
         <button type="submit" class="btn btn-primary">Edit your todo</button>
