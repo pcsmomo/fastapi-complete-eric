@@ -101,3 +101,16 @@ async def delete_todo(request: Request, todo_id: int, db: Session = Depends(get_
     db.commit()
 
     return RedirectResponse(url="/todos", status_code=status.HTTP_302_FOUND)
+
+
+@router.get("/complete/{todo_id}", response_class=HTMLResponse)
+async def complete_todo(request: Request, todo_id: int, db: Session = Depends(get_db)):
+
+    todo = db.query(models.Todos).filter(models.Todos.id == todo_id).first()
+
+    todo.complete = not todo.complete
+
+    db.add(todo)
+    db.commit()
+
+    return RedirectResponse(url="/todos", status_code=status.HTTP_302_FOUND)
