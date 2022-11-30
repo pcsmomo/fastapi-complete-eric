@@ -42,7 +42,7 @@ async def read_all_by_user(request: Request, db: Session = Depends(get_db)):
 
     todos = db.query(models.Todos).filter(models.Todos.owner_id == user.get("id")).all()
 
-    return templates.TemplateResponse("home.html", {"request": request, "todos": todos})
+    return templates.TemplateResponse("home.html", {"request": request, "todos": todos, "user": user})
 
 
 @router.get("/add-todo", response_class=HTMLResponse)
@@ -52,7 +52,7 @@ async def add_new_todo(request: Request):
     if user is None:
         return RedirectResponse(url="/auth", status_code=status.HTTP_302_FOUND)
 
-    return templates.TemplateResponse("add-todo.html", {"request": request})
+    return templates.TemplateResponse("add-todo.html", {"request": request, "user": user})
 
 
 @router.post("/add-todo", response_class=HTMLResponse)
@@ -85,7 +85,7 @@ async def edit_todo(request: Request, todo_id: int, db: Session = Depends(get_db
 
     todo = db.query(models.Todos).filter(models.Todos.id == todo_id).first()
 
-    return templates.TemplateResponse("edit-todo.html", {"request": request, "todo": todo})
+    return templates.TemplateResponse("edit-todo.html", {"request": request, "todo": todo, "user": user})
 
 
 @router.post("/edit-todo/{todo_id}", response_class=HTMLResponse)
