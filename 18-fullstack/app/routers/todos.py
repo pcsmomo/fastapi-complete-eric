@@ -8,7 +8,7 @@ from starlette.responses import RedirectResponse
 
 import app.models as models
 from app.database import engine, SessionLocal
-from .auth import get_current_user, get_user_exception
+from .auth import get_current_user
 
 import sys
 sys.path.append("..")

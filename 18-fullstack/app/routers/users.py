@@ -1,10 +1,10 @@
-from fastapi import Depends, APIRouter
+from fastapi import Depends, APIRouter, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 import app.models as models
 from app.database import engine, SessionLocal
-from .auth import get_current_user, get_user_exception, verify_password, get_password_hash
+from .auth import get_current_user, verify_password, get_password_hash
 
 import sys
 sys.path.append("..")
@@ -58,7 +58,7 @@ async def user_password_change(user_verification: UserVerification,
                                user: dict = Depends(get_current_user),
                                db: Session = Depends(get_db)):
     if user is not None:
-        return get_user_exception()
+        return HTTPException(status_code=404, detail="Not found")
 
     user_model = db.query(models.Users).filter(models.Users.id == user.get("id")).first()
 
@@ -77,7 +77,7 @@ async def user_password_change(user_verification: UserVerification,
 async def delete_user(user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
 
     if user is not None:
-        return get_user_exception()
+        return HTTPException(status_code=404, detail="Not found")
 
     user_model = db.query(models.Users).filter(models.Users.id == user.get("id")).first()
 
