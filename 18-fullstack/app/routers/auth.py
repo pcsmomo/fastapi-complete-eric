@@ -102,7 +102,7 @@ async def get_current_user(request: Request):
             logout(request)
         return {"username": username, "id": user_id}
     except JWTError:
-        raise HTTPException(status_code=404, detail="Not found")
+        raise HTTPException(status_code=404, detail="Something with token went wrong. Check your cookie.")
 
 
 @router.post("/token")

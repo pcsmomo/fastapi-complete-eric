@@ -20,7 +20,6 @@ MYSQL_DB = environ.get('MYSQL_DB')
 MYSQL_ADDR = environ.get('MYSQL_ADDR')
 MYSQL_PORT = environ.get('MYSQL_PORT')
 SQLALCHEMY_DATABASE_URL = f"mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_ADDR}:{MYSQL_PORT}/{MYSQL_DB}"
-print(SQLALCHEMY_DATABASE_URL)
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
