@@ -578,4 +578,14 @@ poetry add aiofiles
 poetry add jinja2
 ```
 
+## Section 20. Deploying FastAPI Applications
+
+### 198. Deployment: Render Introduction
+
+[Render - cloud hosting](https://render.com/)
+
+### 201. Deployment PostgreSQL: Production Database
+
+[ElephantSQL - PostgreSQL hosting](https://www.elephantsql.com/)
+
 </details>
