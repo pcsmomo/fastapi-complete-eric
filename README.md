@@ -194,6 +194,13 @@ async def read_book(book_id: int):
     return {"book_title": book_id}
 ```
 
+## Section 7: (renew) Project 1 - FastAPI Request Method Logic
+
+```sh
+poetry init
+poetry add fastapi uvicorn
+```
+
 ## Section 08. Project 2 - Move Fast with FastAPI
 
 ### 64. Books 2 Project Overview
