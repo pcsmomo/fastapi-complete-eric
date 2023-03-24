@@ -201,6 +201,12 @@ poetry init
 poetry add fastapi uvicorn
 ```
 
+### 51. Create FastAPI Endpoint
+
+```sh
+uvicorn books:app --reload
+```
+
 ## Section 08. Project 2 - Move Fast with FastAPI
 
 ### 64. Books 2 Project Overview
