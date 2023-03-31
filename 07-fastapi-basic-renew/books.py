@@ -64,3 +64,11 @@ async def update_book(updated_book=Body(
         if book.get("title").casefold() == updated_book.get("title").casefold():
             book.update(updated_book)
             return book
+
+
+@app.delete("/books/delete_book/{book_title}")
+async def delete_book(book_title: str):
+    for book in BOOKS:
+        if book.get("title").casefold() == book_title.casefold():
+            BOOKS.remove(book)
+            return BOOKS
