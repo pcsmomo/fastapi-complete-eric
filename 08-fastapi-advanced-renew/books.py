@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import FastAPI, Body
+from fastapi import FastAPI, Query
 from pydantic import BaseModel, Field
 
 app = FastAPI()
@@ -60,6 +60,15 @@ async def read_book(book_id: int):
         if book.id == book_id:
             return book
     return {'message': 'Book not found'}
+
+
+@app.get("/books/")
+async def read_book_by_rating(book_rating: int = Query(gt=0, lt=6)):
+    books_to_return = []
+    for book in BOOKS:
+        if book.rating == book_rating:
+            books_to_return.append(book)
+    return books_to_return
 
 
 @app.post("/books")
