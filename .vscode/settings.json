@@ -1,6 +1,6 @@
 {
   "[python]": {
-    "editor.defaultFormatter": null,
+    "editor.defaultFormatter": "ms-python.python",
     "editor.tabSize": 4,
     "editor.formatOnSave": true
   },
