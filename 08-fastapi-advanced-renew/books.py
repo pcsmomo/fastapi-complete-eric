@@ -1,6 +1,6 @@
 from typing import Optional
 
-from fastapi import FastAPI, Query, Path, HTTPException
+from fastapi import FastAPI, Query, Path, HTTPException, Body
 from pydantic import BaseModel, Field
 from starlette import status
 
@@ -34,12 +34,36 @@ class BookRequest(BaseModel):
 
     class Config:
         schema_extra = {
-            'example': {
+            "put_example": {
                 'title': 'A new book',
                 'author': 'codingwithroby',
                 'description': 'A new description of a book',
                 'rating': 5,
                 'published_date': 2029
+            },
+            'examples': {
+                'example1': {
+                    'summary': 'the first example',
+                    'description': 'the first example of a book creation',
+                    'value': {
+                        'title': 'A new book',
+                        'author': 'codingwithroby',
+                        'description': 'A new description of a book',
+                        'rating': 5,
+                        'published_date': 2029
+                    }
+                },
+                'example2': {
+                    'summary': 'the second example',
+                    'description': 'the second example of a book creation',
+                    'value': {
+                        'title': 'A new second book',
+                        'author': 'codingwithroby',
+                        'description': 'A new description of the second book',
+                        'rating': 4,
+                        'published_date': 2030
+                    }
+                },
             }
         }
 
@@ -86,7 +110,10 @@ async def read_book_by_publish_date(published_date: int = Query(gt=1999, lt=2031
 
 
 @app.post("/books", status_code=status.HTTP_201_CREATED)
-async def create_book(book_request: BookRequest):
+async def create_book(book_request: BookRequest = Body(
+    ...,
+    examples=BookRequest.Config.schema_extra['examples']
+)):
     # print(type(book_request))
     new_book = Book(**book_request.dict())
     # print(type(new_book))
@@ -105,7 +132,10 @@ def find_book_id(book: Book):
 
 
 @app.put("/books/update_book", status_code=status.HTTP_204_NO_CONTENT)
-async def update_book(book: BookRequest):
+async def update_book(book: BookRequest = Body(
+    ...,
+    example=BookRequest.Config.schema_extra['put_example']
+)):
     for i in range(len(BOOKS)):
         if BOOKS[i].id == book.id:
             BOOKS[i] = book
