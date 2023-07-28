@@ -45,7 +45,7 @@ Run Python in VSCode
 <details open>
   <summary>Click to Contract/Expend</summary>
 
-Section 03. Python Installation
+## Section 03. Python Installation
 
 ### 10. Setup Integrated Development Environment
 
