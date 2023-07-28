@@ -10,6 +10,28 @@
 			"item": [
 				{
 					"name": "Read All Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// https://www.youtube.com/watch?v=VywxIQ2ZXw4",
+									"// starts from 1:02:52​",
+									"",
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"const response = pm.response.json();",
+									"",
+									"pm.test(\"the length of the book list should be 6\", () => {",
+									"    pm.expect(response.length).to.eql(6);",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -65,6 +87,19 @@
 				},
 				{
 					"name": "Read Category Books",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -74,7 +109,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{baseUrl}}/books/?category=labore eiusmod tempor",
+							"raw": "{{baseUrl}}/books/?category=science",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -85,7 +120,7 @@
 							"query": [
 								{
 									"key": "category",
-									"value": "labore eiusmod tempor",
+									"value": "science",
 									"description": "(Required) "
 								}
 							]
@@ -174,6 +209,19 @@
 				},
 				{
 					"name": "Read Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -194,7 +242,7 @@
 							"variable": [
 								{
 									"key": "book_title",
-									"value": "adipisicing id deserunt",
+									"value": "{{bookTitle}}",
 									"description": "(Required) "
 								}
 							]
