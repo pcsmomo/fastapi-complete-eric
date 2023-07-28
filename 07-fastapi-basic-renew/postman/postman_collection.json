@@ -94,7 +94,26 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});"
+									"});",
+									"",
+									"const response = pm.response.json();",
+									"",
+									"// console.log(response);",
+									"",
+									"const book = response[1];",
+									"",
+									"pm.test(\"Book found\", () => {",
+									"    pm.expect(book).to.be.an('object');",
+									"    pm.expect(book.title).to.be.string;",
+									"    pm.expect(book.title).to.eql(\"Title Two\");",
+									"});",
+									"",
+									"if (book) {",
+									"    // dynamically change global variable!!",
+									"    pm.globals.set(\"bookTitle\", book.title)",
+									"}",
+									"",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -216,7 +235,12 @@
 								"exec": [
 									"pm.test(\"Status code is 200\", function () {",
 									"    pm.response.to.have.status(200);",
-									"});"
+									"});",
+									"",
+									"pm.test(\"Is in stock\", () => {",
+									"    // failing test",
+									"    pm.expect(1).to.be.above(2);",
+									"})"
 								],
 								"type": "text/javascript"
 							}
@@ -594,7 +618,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{}",
+							"raw": "{\n    \"title\": \"{{$randomNoun}}\",\n    \"author\": \"{{$randomFullName}}\",\n    \"category\": \"science\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

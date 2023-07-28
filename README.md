@@ -207,6 +207,16 @@ poetry add fastapi uvicorn
 uvicorn books:app --reload
 ```
 
+### Postman random name for the body
+
+```json
+{
+  "title": "{{$randomNoun}}",
+  "author": "{{$randomFullName}}",
+  "category": "science"
+}
+```
+
 ## Section 08. Project 2 - Move Fast with FastAPI
 
 ### 64. Books 2 Project Overview
