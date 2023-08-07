@@ -453,7 +453,15 @@ poetry add autopep8
 # uvicorn = "^0.19.0" -> "^0.23.2"
 # sqlalchemy = "^1.4.44" -> "^2.0.19"
 # autopep8 = "^2.0.0" -> "^2.0.2"
+```
 
+#### Pydantic v1 vs Pydantic v2
+
+- `.dict()` function -> `.model_dump()`
+- `schema_extra` function within a `Config` class -> `json_schema_extra`
+
+```sh
+uvicorn app.auth:app --reload
 ```
 
 ## Section 15. Production Database Setup
