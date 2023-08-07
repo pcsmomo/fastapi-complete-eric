@@ -1,9 +1,10 @@
 {
   "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
+    "editor.defaultFormatter": "ms-python.autopep8",
     "editor.tabSize": 4,
     "editor.formatOnSave": true
   },
   "python.defaultInterpreterPath": "/Users/noah/Library/Caches/pypoetry/virtualenvs/17-alembic-iIsYoAfK-py3.10/bin/python",
-  "python.analysis.extraPaths": ["app", "another/path/etc"]
+  "python.analysis.extraPaths": ["app", "another/path/etc"],
+  "python.formatting.provider": "none"
 }

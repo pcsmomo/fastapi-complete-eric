@@ -423,6 +423,39 @@ docker compose build && docker compose up
 2. postman get request to `http://localhost:8000/todos/user`
    - add the token to the 'Authorizaition' -> 'Bearer Token
 
+## Section 10: Authentication & Authorization (renew)
+
+I'd like to go the renewed course with all latest version of packages
+
+- python 3.11
+- PyDantic v2
+
+### 97. FastAPI Project: Starting Authentication & Authorization
+
+```sh
+python --version
+# Python 3.11.3
+
+poetry self update
+poetry --version
+# Poetry (version 1.5.1)
+mv /Users/noah/Library/Preferences/pypoetry/ "/Users/noah/Library/Application Support/pypoetry/"
+
+poetry install
+poetry shell
+poetry add fastapi
+poetry add uvicorn
+poetry add sqlalchemy
+poetry add autopep8
+
+# python = "^3.10" -> "^3.11"
+# fastapi = "^0.87.0" -> "^0.101.0"
+# uvicorn = "^0.19.0" -> "^0.23.2"
+# sqlalchemy = "^1.4.44" -> "^2.0.19"
+# autopep8 = "^2.0.0" -> "^2.0.2"
+
+```
+
 ## Section 15. Production Database Setup
 
 ### 126. FastAPI Project: PostgreSQL Mac Installation

@@ -1,6 +1,6 @@
-FROM arm64v8/python:3.10-slim-bullseye
+FROM arm64v8/python:3.11-slim-bullseye
 
-ENV POETRY_VERSION=1.2.2
+ENV POETRY_VERSION=1.5.1
 
 RUN pip install "poetry==$POETRY_VERSION"
 
