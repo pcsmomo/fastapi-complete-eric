@@ -464,6 +464,12 @@ poetry add autopep8
 uvicorn app.auth:app --reload
 ```
 
+### 98. FastAPI Project: Routers Scale Authentication File
+
+```sh
+uvicorn app.main:app --reload
+```
+
 ## Section 15. Production Database Setup
 
 ### 126. FastAPI Project: PostgreSQL Mac Installation
