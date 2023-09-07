@@ -461,12 +461,14 @@ poetry add autopep8
 - `schema_extra` function within a `Config` class -> `json_schema_extra`
 
 ```sh
+poetry shell
 uvicorn app.auth:app --reload
 ```
 
 ### 98. FastAPI Project: Routers Scale Authentication File
 
 ```sh
+poetry shell
 uvicorn app.main:app --reload
 ```
 
