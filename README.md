@@ -472,6 +472,13 @@ poetry shell
 uvicorn app.main:app --reload
 ```
 
+### 104. FastAPI Project: Hash User's Password
+
+```sh
+poetry shell
+poetry add "passlib[bcrypt]"
+```
+
 ## Section 15. Production Database Setup
 
 ### 126. FastAPI Project: PostgreSQL Mac Installation
