@@ -479,6 +479,16 @@ poetry shell
 poetry add "passlib[bcrypt]"
 ```
 
+```sh
+# to check the data in db
+poetry shell
+sqlite3 todos.db
+# SQLite version 3.39.5 2022-10-14 20:58:05
+# Enter ".help" for usage hints.
+sqlite> select * from users;
+# 1|string|string|string|string|$2b$12$ENH37tPC7Fil3XB2CADjFOfVd/UD4BDiPea2J8Nv/8qrAxQL6YXM.|1|string
+```
+
 ## Section 15. Production Database Setup
 
 ### 126. FastAPI Project: PostgreSQL Mac Installation

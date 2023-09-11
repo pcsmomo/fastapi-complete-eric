@@ -1,9 +1,10 @@
-from typing import Optional
+from typing import Annotated, Optional
 from fastapi import APIRouter, Depends, HTTPException
 import app.models as models
 from app.database import engine, SessionLocal
 from sqlalchemy.orm import Session
 from pydantic import BaseModel, Field
+
 
 router = APIRouter()
 
@@ -89,3 +90,6 @@ def successful_response(status_code: int):
 
 def http_exception():
     return HTTPException(status_code=404, detail="Todo not found")
+
+
+db_dependency = Annotated[Session, Depends(get_db)]
