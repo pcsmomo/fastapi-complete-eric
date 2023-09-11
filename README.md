@@ -479,6 +479,8 @@ poetry shell
 poetry add "passlib[bcrypt]"
 ```
 
+### 105. FastAPI Project: Save User to Database
+
 ```sh
 # to check the data in db
 poetry shell
@@ -487,6 +489,12 @@ sqlite3 todos.db
 # Enter ".help" for usage hints.
 sqlite> select * from users;
 # 1|string|string|string|string|$2b$12$ENH37tPC7Fil3XB2CADjFOfVd/UD4BDiPea2J8Nv/8qrAxQL6YXM.|1|string
+```
+
+### 106. FastAPI Project: Authenticate a User
+
+```sh
+poetry add python-multipart
 ```
 
 ## Section 15. Production Database Setup
