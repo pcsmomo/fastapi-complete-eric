@@ -497,6 +497,19 @@ sqlite> select * from users;
 poetry add python-multipart
 ```
 
+### 108. FastAPI Project: Encode a JSON Web Token (JWT)
+
+```sh
+poetry add "python-jose[cryptography]"
+
+openssl rand -hex 32
+# 2b15c977143e260e552217187e4c7ee429740cc9c2ec37a14995b60825bd531c
+```
+
+navigate swagger docs and check the endpoint POST `/token`.
+
+you can decode the generated token on [jwt.io](https://jwt.io/)
+
 ## Section 15. Production Database Setup
 
 ### 126. FastAPI Project: PostgreSQL Mac Installation
