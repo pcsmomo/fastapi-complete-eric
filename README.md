@@ -510,6 +510,8 @@ navigate swagger docs and check the endpoint POST `/token`.
 
 you can decode the generated token on [jwt.io](https://jwt.io/)
 
+## Section 11: Authenticate Requests
+
 ## Section 15. Production Database Setup
 
 ### 126. FastAPI Project: PostgreSQL Mac Installation
