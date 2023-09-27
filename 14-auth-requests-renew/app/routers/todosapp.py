@@ -31,9 +31,9 @@ class TodoRequest(BaseModel):
 
 
 @router.get("/")
-async def read_all(db: db_dependency):
-    # return {"Database": "Created"}
-    return db.query(Todos).all()
+async def read_all(user: user_dependency, db: db_dependency):
+    # return db.query(Todos).all()  # without user filter
+    return db.query(Todos).filter(Todos.owner_id == user.get("id")).all()
 
 
 @router.get("/todo/{todo_id}")
