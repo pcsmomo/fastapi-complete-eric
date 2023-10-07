@@ -575,6 +575,8 @@ poetry add alembic
   - run our upgrade migration to our database
 - `alembic downgrade <revision #>`
   - run our downgrade migration to our database
+- `alembic downgrade -1`
+  - run our downgrade migration to our database
 
 #### How does alembic work?
 

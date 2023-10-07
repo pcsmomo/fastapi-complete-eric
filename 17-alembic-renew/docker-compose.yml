@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+    app:
+        build: '.'
+        networks:
+            - local
+        ports:
+            - 8000:8000
+        volumes:
+            - ./app:/usr/src/app
+            - ./todos.db:/usr/src/todos.db
+    # sqlite:
+    #     image: keinos/sqlite3:latest
+
+networks:
+  local:
+    name: local
