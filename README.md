@@ -668,6 +668,24 @@ But I still keep them under app
 3. execute upgrade
    `alembic upgrade c511ac47feb4`
 
+## Section 13: (renew) Project 3.5 - Alembic Data Migration
+
+### 132. Alembic Installation and Setup
+
+```sh
+poetry add alembic
+```
+
+### 134. Alembic Revision Upgrade
+
+1. modify `alembic.ini` and `alembic/env.py`
+2. create a new revision
+   ```sh
+   poetry shell
+   alembic revision -m "Create phone number for user column"
+   # Generating /Users/noah/Documents/study/study_codes/udemy/fastapi-complete-eric/fastapi-complete-eric-git/17-alembic-renew/alembic/versions/21b1a4f93697_create_phone_number_for_user_column.py ...  done
+   ```
+
 ## Section 18. Project 4 - Full Stack Application
 
 ### Create MySQL database and connect it via docker compose
