@@ -685,6 +685,19 @@ poetry add alembic
    alembic revision -m "Create phone number for user column"
    # Generating /Users/noah/Documents/study/study_codes/udemy/fastapi-complete-eric/fastapi-complete-eric-git/17-alembic-renew/alembic/versions/21b1a4f93697_create_phone_number_for_user_column.py ...  done
    ```
+3. add the upgrade script in `alembic/versions/21b1a4f93697_create_phone_number_for_user_column.py`
+4. execute the upgrade script
+   ```sh
+   alembic upgrade 21b1a4f93697
+   ```
+5. run the app to check
+   ```sh
+   uvicorn app.main:app --reload
+   ```
+6. navigate `http://localhost:8000/docs#/user/get_user_user__get`
+   - Authorize with the user account and navigate
+   - we will see the `"phone_number": null` in the response
+   - (we will have to sync the user model as well, `17-alembic-renew/app/models.py`)
 
 ## Section 18. Project 4 - Full Stack Application
 
