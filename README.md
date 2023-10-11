@@ -699,6 +699,24 @@ poetry add alembic
    - we will see the `"phone_number": null` in the response
    - (we will have to sync the user model as well, `17-alembic-renew/app/models.py`)
 
+### 135. Alembic Revision Downgrade
+
+1. add the downgrade script in `alembic/versions/21b1a4f93697_create_phone_number_for_user_column.py`
+2. execute the downgrade script
+   ```sh
+   alembic downgrade -1
+   ```
+3. run the app to check
+   ```sh
+   uvicorn app.main:app --reload
+   ```
+4. navigate `http://localhost:8000/docs`
+   - Authorize with the user account and it will fail with error message `sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such column: users.phone_number`
+5. execute the upgrade script
+   ```sh
+   alembic upgrade 21b1a4f93697
+   ```
+
 ## Section 18. Project 4 - Full Stack Application
 
 ### Create MySQL database and connect it via docker compose
