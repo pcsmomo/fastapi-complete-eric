@@ -35,6 +35,13 @@ FastAPI - The Complete Course 2022 (Beginner + Advanced) by Eric Roby
   - `docker compose build && docker compose up`
   - python backend, static and MySQL
 
+### (renewed sections)
+
+- 13-authentication-renew
+- 14-auth-requests-renew
+- 17-alembic-renew
+  - copy from 14-auth-requests-renew
+
 ## Details
 
 Run Python in VSCode
